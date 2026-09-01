@@ -1,0 +1,28 @@
+name: validate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  composer:
+    runs-on: ubuntu-latest
+
+    name: composer validate & resolve
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Validate composer.json
+        run: composer validate --strict --no-check-lock
+
+      # A metapackage ships no code, so the only thing worth testing is that
+      # the set of packages it points at still resolves together.
+      - name: Resolve the dependency set
+        run: composer update --dry-run --no-interaction --no-progress

@@ -1,0 +1,25 @@
+{
+    "name": "djzt/laravel-helpers",
+    "description": "Every DJZT Laravel helper package behind a single require: typed request accessors and API resource formatting helpers.",
+    "keywords": [
+        "laravel",
+        "helpers",
+        "metapackage",
+        "request",
+        "resource"
+    ],
+    "homepage": "https://github.com/DJZT/laravel-helpers",
+    "license": "MIT",
+    "type": "metapackage",
+    "authors": [
+        {
+            "name": "DJZT",
+            "email": "djzt44@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "djzt/laravel-request-helper": "^0.1",
+        "djzt/laravel-resource-helper": "^0.1"
+    }
+}
